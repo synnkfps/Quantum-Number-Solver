@@ -1,4 +1,5 @@
 # Logic
+# [ -2 | -1 | 0 | +1 | +2 ]
 
 n = int(input('Enter the n: '))
 l = int(input('Enter the l: '))
@@ -33,7 +34,6 @@ pos = 0
 # ways = False = M is in negative way
 
 if ways and s == '+1/2':
-    print('is +1/2')
     for i in scheme:
         if pos == (m*2)+2:
             break
@@ -41,15 +41,37 @@ if ways and s == '+1/2':
         pos += 1
 
 if ways and s == '-1/2':
-    # todo
-    pass
+    for i in scheme:
+        i.append(1)
+    else:
+        for i in scheme:
+            if pos == (m*2)+2:
+                break 
+            i[0] += 1
+            pos += 1
 
 if not ways and s == '+1/2':
-    # todo
-    pass
+    for i in scheme:
+        if pos == int(str(m)[1])+1:
+            break 
+        i.append(1)
+        pos += 1
 
 if not ways and s == '-1/2':
-    # todo
-    pass
+    for i in scheme:
+        i.append(1)
+    else:
+        for i in scheme:
+            if pos == (int(str(m)[1])*2):
+                break 
+            i[0] += 1
+            pos += 1
               
-print(chem, scheme)
+#print(chem, scheme)
+
+total = 0
+for i in scheme:
+    total += i[0]
+
+chem += str(total)
+print(chem)
