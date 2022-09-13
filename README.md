@@ -2,7 +2,7 @@
 Quantum number solver in Python (for my homework and my exam)
 
 ### Logic
-```
+```py
 n = the number (e.g: 3)
 l = the layer (e.g: 2 | 3D)
 m = the position (from -l to +l) 
