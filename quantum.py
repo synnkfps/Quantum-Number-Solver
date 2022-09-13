@@ -1,5 +1,4 @@
 # Logic
-# [ -2 | -1 | 0 | +1 | +2 ]
 
 superscript = {0:'⁰', 1:'¹', 2:'²', 3:'³', 4:'⁴', 5:'⁵', 6:'⁶', 7:'⁷', 8:'⁸', 9:'⁹'}
 
@@ -61,18 +60,19 @@ if not ways and (s == '+1/2' or s == '1/2'):
         pos += 1
 
 if not ways and s == '-1/2':
+    mid = (int(len(table)/2))
+
     for i in table:
         i.append(1)
     
     for i in table:
-        if pos == (int(str(m)[1])*2):
+        if pos == (mid - int(str(m)[1])+1):
             break 
         i[0] += 1
         pos += 1
 
 total = 0
 for i in table:
-    print(i)
     if not not i:
         total += i[0]
 
