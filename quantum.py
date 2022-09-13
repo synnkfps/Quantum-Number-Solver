@@ -70,11 +70,11 @@ if not ways and s == '-1/2':
         i[0] += 1
         pos += 1
 
-print(table)
-
 total = 0
 for i in table:
-    total += i[0]
+    print(i)
+    if not not i:
+        total += i[0]
 
 for i in str(total):
     shell += superscript[int(i)]
@@ -84,10 +84,11 @@ print("\t"*int(len(table)/3) + f'{shell}')
 
 # ⇅, ↑
 for i in table:
-    if i[0] == 2:
-        i[0] = '⇅'
+    if not not i:
+        if i[0] == 2:
+            i[0] = '⇅'
 
-    if i[0] == 1:
-        i[0] = '↑'
+        if i[0] == 1:
+            i[0] = '↑'
 
 print('[ ' + str(table).replace(', ', ' | ').replace('\'','').replace('[','').replace(']','') + ' ]')
