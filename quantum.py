@@ -35,7 +35,7 @@ pos = 0
 # ways = True = M is in plus way
 # ways = False = M is in negative way
 
-if ways and s == '+1/2':
+if ways and (s == '+1/2' or s == '1/2'):
     for i in table:
         if pos == (m*2)+2:
             break
@@ -45,29 +45,32 @@ if ways and s == '+1/2':
 if ways and s == '-1/2':
     for i in table:
         i.append(1)
-    else:
-        for i in table:
-            if pos == (m*2)+2:
-                break 
-            i[0] += 1
-            pos += 1
 
-if not ways and s == '+1/2':
     for i in table:
-        if pos == int(str(m)[1])+1:
+        if pos == (m*2)+2:
             break 
+        i[0] += 1
+        pos += 1
+
+if not ways and (s == '+1/2' or s == '1/2'):
+    mid = (int(len(table)/2))
+    for i in table:
         i.append(1)
+        if pos == (mid - int(str(m)[1])):
+            break
         pos += 1
 
 if not ways and s == '-1/2':
     for i in table:
         i.append(1)
-    else:
-        for i in table:
-            if pos == (int(str(m)[1])*2):
-                break 
-            i[0] += 1
-            pos += 1
+    
+    for i in table:
+        if pos == (int(str(m)[1])*2):
+            break 
+        i[0] += 1
+        pos += 1
+
+print(table)
 
 total = 0
 for i in table:
