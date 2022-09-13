@@ -1,6 +1,16 @@
 ## Quantum Number Solver
 Quantum number solver in Python (for my homework and my exam)
 
+### My output
+```py
+Enter the n: 3
+Enter the l: 2
+Enter the m: 2
+Enter the s: -1/2
+        3D¹⁰
+[ ⇅ | ⇅ | ⇅ | ⇅ | ⇅ ]
+```
+
 ### Logic
 ```py
 n = the number (e.g: 3)
