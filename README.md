@@ -9,6 +9,14 @@ Enter the m: 2
 Enter the s: -1/2
         3D¹⁰
 [ ⇅ | ⇅ | ⇅ | ⇅ | ⇅ ]
+
+# another
+Enter the n: 3
+Enter the l: 3
+Enter the m: -3
+Enter the s: -1/2
+                3F⁸
+[ ⇅ | ↑ | ↑ | ↑ | ↑ | ↑ | ↑ ]
 ```
 
 ### Logic
