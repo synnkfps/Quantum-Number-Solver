@@ -1,6 +1,8 @@
 # Logic
 # [ -2 | -1 | 0 | +1 | +2 ]
 
+superscript = {0:'⁰', 1:'¹', 2:'²', 3:'³', 4:'⁴', 5:'⁵', 6:'⁶', 7:'⁷', 8:'⁸', 9:'⁹'}
+
 n = int(input('Enter the n: '))
 l = int(input('Enter the l: '))
 m = int(input('Enter the m: '))
@@ -13,15 +15,15 @@ if m > l:
 # S supports 2 | P supports 6 | D supports 10 | F supports 14
 definitions = {'S':0, 'P':1, 'D':2, 'F': 3}
 
-chem = str(n)
+shell = str(n)
 
 for i in definitions:
     if definitions[i] == l:
-        chem += i
+        shell += i
 
-scheme = []
-for i in range((definitions[chem[-1]]*2)+1):
-    scheme.append([])
+table = []
+for i in range((definitions[shell[-1]]*2)+1):
+    table.append([])
 
 ways = True
 
@@ -34,44 +36,55 @@ pos = 0
 # ways = False = M is in negative way
 
 if ways and s == '+1/2':
-    for i in scheme:
+    for i in table:
         if pos == (m*2)+2:
             break
         i.append(1)
         pos += 1
 
 if ways and s == '-1/2':
-    for i in scheme:
+    for i in table:
         i.append(1)
     else:
-        for i in scheme:
+        for i in table:
             if pos == (m*2)+2:
                 break 
             i[0] += 1
             pos += 1
 
 if not ways and s == '+1/2':
-    for i in scheme:
+    for i in table:
         if pos == int(str(m)[1])+1:
             break 
         i.append(1)
         pos += 1
 
 if not ways and s == '-1/2':
-    for i in scheme:
+    for i in table:
         i.append(1)
     else:
-        for i in scheme:
+        for i in table:
             if pos == (int(str(m)[1])*2):
                 break 
             i[0] += 1
             pos += 1
-              
-#print(chem, scheme)
 
 total = 0
-for i in scheme:
+for i in table:
     total += i[0]
 
-chem += str(total)
-print(chem)
+for i in str(total):
+    shell += superscript[int(i)]
+
+#print(shell)
+print("\t"*int(len(table)/3) + f'{shell}')
+
+# ⇅, ↑
+for i in table:
+    if i[0] == 2:
+        i[0] = '⇅'
+
+    if i[0] == 1:
+        i[0] = '↑'
+
+print('[ ' + str(table).replace(', ', ' | ').replace('\'','').replace('[','').replace(']','') + ' ]')
